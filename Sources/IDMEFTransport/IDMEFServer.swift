@@ -20,6 +20,14 @@ public struct IDMEFServer {
                 startResponse: ((String, [(String, String)]) -> Void),
                 sendBody: ((Data) -> Void)
             ) in
+            let input = environ["swsgi.input"] as! SWSGIInput
+            input { data in
+                let jsonString = String(data: data, encoding: .utf8)
+                if jsonString != nil && !jsonString!.isEmpty {
+                    let msg = IDMEFObject.deserialize(json: jsonString!)
+                    print(msg!)
+                }
+            }
             startResponse("200 OK", [])
             sendBody(Data())
         }
