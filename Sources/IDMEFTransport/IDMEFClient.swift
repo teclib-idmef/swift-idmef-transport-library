@@ -1,10 +1,15 @@
 import Foundation
+import IDMEF
 
 public struct IDMEFClient {
     let url: URL
 
     public init(url: String) {
         self.url = URL(string: url)!
+    }
+
+    public func send(message: IDMEFObject) {
+
     }
 
 /*    func simplePostRequestWithParamsAndErrorHandling(){
