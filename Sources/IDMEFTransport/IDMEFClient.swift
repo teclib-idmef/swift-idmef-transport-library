@@ -1,3 +1,4 @@
+import FoundationNetworking
 import Foundation
 import IDMEF
 
@@ -9,24 +10,14 @@ public struct IDMEFClient {
     }
 
     public func send(message: IDMEFObject) {
+        let session = URLSession.shared
 
-    }
-
-/*    func simplePostRequestWithParamsAndErrorHandling(){
-        let url = URL(string: "https://httpbin.org/post")!
-        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        let parameters = ["username": "foo", "password": "123456"]
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-        } catch let error {
-            print(error.localizedDescription)
-        }
+        request.httpBody = message.serialize()!.data(using: .utf8)!
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             
@@ -39,24 +30,9 @@ public struct IDMEFClient {
                 print("Oops!! there is server error!")
                 return
             }
-            
-            guard let mime = response.mimeType, mime == "application/json" else {
-                print("response is not json")
-                return
-            }
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: [])
-                print("The Response is : ",json)
-            } catch {
-                print("JSON error: \(error.localizedDescription)")
-            }
-            
         })
         
         task.resume()
     }
-}
-*/
 }
 
