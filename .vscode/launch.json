@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Test IDMEFTransport",
+            "program": "${workspaceFolder:swift-idmef-transport-library}/.build/debug/IDMEFTransportPackageTests.xctest",
+            "cwd": "${workspaceFolder:swift-idmef-transport-library}",
+            "preLaunchTask": "swift: Build All"
+        }
+    ]
+}
