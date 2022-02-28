@@ -3,7 +3,7 @@ import IDMEF
 import FoundationNetworking
 @testable import IDMEFTransport
 
-final class IDMEFTransportTests: XCTestCase {
+final class IDMEFClientTests: XCTestCase {
     func test1() throws {
         let client = IDMEFClient(url: "http://127.0.0.1:9999")
 

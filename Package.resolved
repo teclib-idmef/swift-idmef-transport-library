@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "Embassy",
+        "repositoryURL": "https://github.com/envoy/Embassy.git",
+        "state": {
+          "branch": null,
+          "revision": "065b6ce52596bd06b867cfe17fea2c56dcb53b30",
+          "version": "4.1.3"
+        }
+      },
+      {
         "package": "JSONSchema",
         "repositoryURL": "https://github.com/kylef/JSONSchema.swift.git",
         "state": {

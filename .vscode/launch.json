@@ -3,6 +3,32 @@
         {
             "type": "lldb",
             "request": "launch",
+            "name": "Test IDMEFClient",
+            "program": "${workspaceFolder:swift-idmef-transport-library}/.build/debug/IDMEFTransportPackageTests.xctest",
+            "cwd": "${workspaceFolder:swift-idmef-transport-library}",
+            "preLaunchTask": "swift: Build All"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug IDMEFServerExecutable",
+            "program": "${workspaceFolder:swift-idmef-transport-library}/.build/debug/IDMEFServerExecutable",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-idmef-transport-library}",
+            "preLaunchTask": "swift: Build Debug IDMEFServerExecutable"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Release IDMEFServerExecutable",
+            "program": "${workspaceFolder:swift-idmef-transport-library}/.build/release/IDMEFServerExecutable",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-idmef-transport-library}",
+            "preLaunchTask": "swift: Build Release IDMEFServerExecutable"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
             "name": "Test IDMEFTransport",
             "program": "${workspaceFolder:swift-idmef-transport-library}/.build/debug/IDMEFTransportPackageTests.xctest",
             "cwd": "${workspaceFolder:swift-idmef-transport-library}",
