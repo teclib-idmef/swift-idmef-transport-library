@@ -1,11 +1,11 @@
 import XCTest
+import IDMEF
 @testable import IDMEFTransport
 
 final class IDMEFTransportTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-//        XCTAssertEqual(IDMEFTransport().text, "Hello, World!")
+    func test1() throws {
+        let client = IDMEFClient(url: "http://127.0.0.1:9999")
+
+        client.send(message: IDMEFExample.message1())
     }
 }
