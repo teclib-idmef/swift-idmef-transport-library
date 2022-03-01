@@ -21,14 +21,28 @@ public struct IDMEFServer {
                 sendBody: ((Data) -> Void)
             ) in
             let input = environ["swsgi.input"] as! SWSGIInput
+            var valid = false
             input { data in
                 let jsonString = String(data: data, encoding: .utf8)
                 if jsonString != nil && !jsonString!.isEmpty {
                     let msg = IDMEFObject.deserialize(json: jsonString!)
-                    print(msg!)
+                    do {
+                        if let v = try msg?.validate() {
+                            print(v)
+                            valid = v
+                            print(msg!)
+                        } else {
+                            print("Invalid message")
+                        }
+                    } catch {
+                    }
                 }
             }
-            startResponse("200 OK", [])
+            if valid {
+                startResponse("200 OK", [])
+            } else {
+                startResponse("500 Internal server error", [])
+            }
             sendBody(Data())
         }
 
