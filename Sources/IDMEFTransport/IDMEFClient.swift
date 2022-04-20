@@ -2,13 +2,37 @@ import FoundationNetworking
 import Foundation
 import IDMEF
 
+/**
+ Client part of the IDMEF transport.
+ 
+ This implementation provides:
+ 
+ - IDMEF message sending over HTTP
+ 
+*/
 public struct IDMEFClient {
     let url: URL
 
+    /**
+    Initialize a IDMEFClient.
+
+    - Parameters:
+        - url: the URL of the server, for instance "http://127.0.0.1:9999"
+    */
     public init(url: String) {
         self.url = URL(string: url)!
     }
 
+    /**
+    Send a IDMEF message other HTTP using a POST request.
+
+    The request is synchronous and the function waits till completion of the request.
+
+    - Parameters:
+        - message: the message to send
+
+    - Returns: the HTTP response and an error (if an error occurred)
+    */
     public func send(message: IDMEFObject) -> (response: URLResponse?, error: Error?) {
         var response: URLResponse?
         var error: Error?
