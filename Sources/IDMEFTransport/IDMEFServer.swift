@@ -3,13 +3,38 @@ import Foundation
 import Embassy
 import IDMEF
 
+/**
+ Server part of the IDMEF transport.
+ 
+ This implementation provides:
+ 
+ - IDMEF message reception over HTTP
+ 
+*/
 public struct IDMEFServer {
     let port: Int
 
+    /**
+    Initialize a IDMEFServer.
+
+    - Parameters:
+        - port: the TCP port on which server will listen, for instance 9999
+    */
     public init(port: Int) {
         self.port = port
     }
 
+    /**
+    Start the server loop.
+
+    This function is blocking and will loop forever.
+
+    When a JSON content is received, the JSON bytes are deserialized to a IDMEFObject
+    and the created object is then validated against the JSON schema.
+
+    If valid, a HTTP "200 OK" response will be sent and the message will be printed.
+    If not valid, a HTTP "500 Internal server error" response will be sent.
+    */
     public func start() {
         let loop = try! SelectorEventLoop(selector: try! SelectSelector())
 
