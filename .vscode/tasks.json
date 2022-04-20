@@ -4,8 +4,8 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "swift: Build Documentation",
-            "detail": "docker run swiftdoc/swift-doc",
+            "label": "swift: Build Documentation (html)",
+            "detail": "docker run swiftdoc/swift-doc --format html",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -15,8 +15,24 @@
                 "clear": true
             },
             "type": "shell",
-            "command": "docker run --user=$(id -u) --volume=${workspaceFolder}/:/src -it swiftdoc/swift-doc generate /src --module-name swift-idmef-transport --output /src/.build/documentation --format html --base-url ${workspaceFolder}/.build/documentation/",
+            "command": "docker run --user=$(id -u) --volume=${workspaceFolder}/:/src -it swiftdoc/swift-doc generate /src --module-name swift-idmef-transport --output /src/doc/html --format html --base-url ${workspaceFolder}/.build/documentation/",
+            "problemMatcher": []
+        },
+        {
+            "label": "swift: Build Documentation (commonmark)",
+            "detail": "docker run swiftdoc/swift-doc --format commonmark",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "type": "shell",
+            "command": "docker run --user=$(id -u) --volume=${workspaceFolder}/:/src -it swiftdoc/swift-doc generate /src --module-name swift-idmef-transport --output /src/doc/commonmark --format commonmark ",
             "problemMatcher": []
         }
+
     ]
 }
