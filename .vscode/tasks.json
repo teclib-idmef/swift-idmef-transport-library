@@ -15,7 +15,8 @@
                 "clear": true
             },
             "type": "shell",
-            "command": "docker run --user=$(id -u) --volume=${workspaceFolder}/:/src -it swiftdoc/swift-doc generate /src --module-name swift-idmef-transport --output /src/doc/html --format html --base-url ${workspaceFolder}/.build/documentation/",
+//            "command": "docker run --user=$(id -u) --volume=${workspaceFolder}/:/src -it swiftdoc/swift-doc generate /src --module-name swift-idmef-transport --output /src/doc/html --format html --base-url ${workspaceFolder}/doc/html",
+            "command": "docker run --user=$(id -u) --volume=${workspaceFolder}/:/src -it swiftdoc/swift-doc generate /src --module-name swift-idmef-transport --output /src/doc/html --format html --base-url .",
             "problemMatcher": []
         },
         {
