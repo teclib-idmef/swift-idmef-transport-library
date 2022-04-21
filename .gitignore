@@ -1,6 +1,8 @@
 .DS_Store
 /.build
-doc/
+doc/commonmark
+doc/html/**/*.html
+doc/html/**/*.css
 /Packages
 /*.xcodeproj
 xcuserdata/
