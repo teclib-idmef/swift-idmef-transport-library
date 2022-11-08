@@ -54,7 +54,60 @@ dependencies: [
 
 ### Client
 
+A new client can be created by instantiating `IDMEFClient`. Once created, message can be send using the `send()` method.
+
+```swift
+import IDMEF
+import Foundation
+import FoundationNetworking
+import IDMEFTransport
+
+@main
+public class IDMEFExample {
+
+    public static func message1() -> IDMEFObject {
+        var msg = IDMEFObject()
+        msg["Version"] = "2.0.3"
+        msg["ID"] = UUID().uuidString
+        msg["CreateTime"] = "2021-11-22T14:42:51.881033Z"
+
+        var analyzer = [AnyHashable:Any]()
+        analyzer["IP"] = "127.0.0.1"
+        analyzer["Name"] = "foobar"
+        analyzer["Model"] = "generic"
+        analyzer["Category"] = ["LOG"]
+        analyzer["Data"] = ["Log"]
+        analyzer["Method"] = ["Monitor"]
+
+        msg["Analyzer"] = analyzer
+
+        return msg
+    }
+
+    func main() {
+        let client = IDMEFClient(url: "http://127.0.0.1:9999")
+
+        let (response, _) = client.send(message: IDMEFExample.message1()
+
+        guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
+            print(response as! HTTPURLResponse)
+            return
+        }
+    }
+}
+```
+
 ### Server
+
+A new server can be created by instantiating `IDMEFServer`. Once created, server loop message can be started using the `start()` method. This method will loop processing messages received by the server.
+
+```swift
+import IDMEFTransport
+
+let server = IDMEFServer(port: 9999)
+
+server.start()
+```
 
 ## Contributions
 
