@@ -1,4 +1,4 @@
-# swift-idmef-transport-library
+# Swift IDMEFv2 transport library
 
 ![GitHub top language](https://img.shields.io/github/languages/top/teclib-idmef/swift-idmef-transport-library) 
 ![GitHub](https://img.shields.io/github/license/teclib-idmef/swift-idmef-transport-library) 
