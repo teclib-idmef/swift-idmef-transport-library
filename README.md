@@ -3,7 +3,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/teclib-idmef/swift-idmef-transport-library) 
 ![GitHub](https://img.shields.io/github/license/teclib-idmef/swift-idmef-transport-library) 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/teclib-idmef/swift-idmef-transport-library) 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/teclib-idmef/swift-idmef-transport-library) 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/teclib-idmef/swift-idmef-transport-library)
 ![GitHub issues](https://img.shields.io/github/issues/teclib-idmef/swift-idmef-transport-library)
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)
 
